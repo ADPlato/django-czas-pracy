@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
+
+
+from ewidencja.views import index_view,employees_view, managers_view, time_view, project_view, teams_view, add_worktime_report
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index_view),
+    path('login', auth_views.LoginView.as_view()),
+    path('employees', employees_view),
+    path('mamagers', managers_view),
+    path('working-time',add_worktime_report),
+    path('projects', project_view),
+    path('teams', teams_view),
 ]
