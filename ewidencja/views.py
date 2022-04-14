@@ -1,22 +1,25 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import WorkingReportForm
-from .models import Employee
+from .models import Employee, Manager, Team, Project
 # Create your views here.
 
 def index_view(request):
     return render(request, 'index.html')
 
 def employees_view(request):
-    #employee_list = Employee.objects.all()
-    #render(request, )
-    pass
+    employee_list = Employee.objects.all()
+    employee_name = Employee.__name__
+    return render(request, 'list_template.html', {'all':employee_list, 'title': employee_name})
+
 
 def managers_view(request):
-    pass
+    manager_list = Manager.objects.all()
+    manager_name = Manager.__name__
+    return render(request, 'list_template.html', {'all': manager_list, 'title': manager_name})
 
 def time_view(request):
-    form = WorkingReportForm(request.POST or None)
+    pass
 
 @login_required
 def add_worktime_report(request):
@@ -28,7 +31,11 @@ def add_worktime_report(request):
 
 
 def project_view(request):
-    pass
+    project_list = Project.objects.all()
+    project_name = Project.__name__
+    return render(request, 'list_template.html', {'all': project_list, 'title': project_name})
 
 def teams_view(request):
-    pass
+    team_list = Team.objects.all()
+    team_name = Team.__name__
+    return render(request, 'list_template.html', {'all': team_list, 'title': team_name})

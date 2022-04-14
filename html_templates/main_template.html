@@ -15,7 +15,31 @@
     <title>{% block tytul %} {%endblock%}</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+<ul class="navbar-nav mx-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="{%url 'employee' %}">Employee</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{%url 'manager' %}">Managers</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{%url 'team' %}">Teams</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{%url 'project' %}">Projects</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{%url 'time' %}">Add Working Report</a>
+  </li>
+</ul>
+    {% if user.is_authenticated %}
+    <a href="{%url 'logout' %}" class="nav-link">Logout</a>
+    {% else %}
+    <a href="{%url 'login' %}" class="nav-link">Login</a>
 
+    {% endif %}
+</nav>
     {% block strona %}{%endblock%}
 
 </body>
