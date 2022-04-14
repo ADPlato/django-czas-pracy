@@ -18,8 +18,6 @@ def managers_view(request):
     manager_name = Manager.__name__
     return render(request, 'list_template.html', {'all': manager_list, 'title': manager_name})
 
-def time_view(request):
-    pass
 
 @login_required
 def add_worktime_report(request):

@@ -18,7 +18,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 
-from ewidencja.views import index_view,employees_view, managers_view, time_view, project_view, teams_view, add_worktime_report
+from ewidencja.views import index_view,employees_view, managers_view, project_view, teams_view, add_worktime_report
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +26,7 @@ urlpatterns = [
     path('login', auth_views.LoginView.as_view(), name='login'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('employees', employees_view, name='employee'),
-    path('mamagers', managers_view, name = 'manager'),
+    path('managers', managers_view, name = 'manager'),
     path('working-time',add_worktime_report, name = 'time'),
     path('projects', project_view, name = 'project'),
     path('teams', teams_view, name = 'team'),
