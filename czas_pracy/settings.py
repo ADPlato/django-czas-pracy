@@ -57,7 +57,7 @@ ROOT_URLCONF = 'czas_pracy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['html_templates'],
+        'DIRS': ['templates/html'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

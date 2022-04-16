@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import WorkingReportForm
-from .models import Employee, Manager, Team, Project
+from .models import Employee, Manager, Team, Project, WorkingTime
 # Create your views here.
 
 def index_view(request):
@@ -37,3 +37,8 @@ def teams_view(request):
     team_list = Team.objects.all()
     team_name = Team.__name__
     return render(request, 'list_template.html', {'all': team_list, 'title': team_name})
+
+def reports_list_view(request):
+    report_list = WorkingTime.objects.all()
+    report_name = "Reports"
+    return render(request, 'list_template.html', {'all': report_list, 'title':report_name})

@@ -25,6 +25,8 @@ class WorkingTime(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     job_description = models.TextField()
 
+    def __str__(self):
+        return f"{self.employee}: {self.arrival} - {self.leaving}"
 
 class Project(models.Model):
     name = models.CharField(max_length=64)
